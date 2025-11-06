@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "build:css-watch": "npx @tailwindcss/cli -i ./src/css/input.css -o ./src/css/output.css --watch",
+    "build:css-minify": "npx @tailwindcss/cli -i ./src/css/input.css -o ./src/css/theme.min.css --minify",
+    "build:js": "terser src/js/dataLayer.js src/js/gsap.min.js src/js/ScrollTrigger.min.js src/js/ScrollSmoother.min.js src/js/SplitText.min.js src/js/scroll-smoother.js src/js/animations.js src/js/whatsapp-widget.js src/js/whatsapp-distribution.js src/js/toast.js src/js/form.js -c -m -o src/js/bundle.min.js"
+  },
+  "dependencies": {
+    "@phosphor-icons/web": "^2.1.2",
+    "@tailwindcss/cli": "^4.1.14",
+    "gsap": "^3.13.0",
+    "resend": "^6.1.2",
+    "tailwindcss": "^4.1.14"
+  },
+  "devDependencies": {
+    "terser": "^5.44.0"
+  }
+}
