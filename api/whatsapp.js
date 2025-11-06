@@ -20,11 +20,17 @@ module.exports = async (req, res) => {
   }
 
   try {
+    if (!process.env.MONGODB_URI) {
+      console.error('MONGODB_URI not configured');
+      res.status(500).json({ error: 'Database not configured' });
+      return;
+    }
+
     const client = await connectToDatabase();
     const db = client.db('mk-fiadores');
     const collection = db.collection('whatsapp_numbers');
 
-    const number = await collection.findOneAndUpdate(
+    const result = await collection.findOneAndUpdate(
       { active: true },
       {
         $inc: { assignment_count: 1 },
@@ -36,14 +42,15 @@ module.exports = async (req, res) => {
       }
     );
 
-    if (!number) {
+    if (!result || !result.value) {
+      console.error('No active numbers found in database');
       res.status(404).json({ error: 'No active numbers found' });
       return;
     }
 
-    res.status(200).json({ phoneNumber: number.phone_number });
+    res.status(200).json({ phoneNumber: result.value.phone_number });
   } catch (error) {
-    console.error('Database error:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    console.error('Database error:', error.message, error.stack);
+    res.status(500).json({ error: 'Internal server error', details: error.message });
   }
 };
