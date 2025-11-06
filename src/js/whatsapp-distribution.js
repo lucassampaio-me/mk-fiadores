@@ -1,21 +1,11 @@
-const SUPABASE_URL = 'https://okwebinnqidvsfqlprrk.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9rd2ViaW5ucWlkdnNmcWxwcnJrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk1ODI1NjksImV4cCI6MjA3NTE1ODU2OX0.fpm8Z_4C4q-0QN6MKw1PkzPllLrz1a7-PTBBEtmMgqM';
-
 async function getNextWhatsAppNumber() {
     try {
-        const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/get_next_whatsapp`, {
-            method: 'POST',
-            headers: {
-                'apikey': SUPABASE_ANON_KEY,
-                'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-                'Content-Type': 'application/json'
-            }
-        });
+        const response = await fetch('/api/whatsapp');
 
         if (!response.ok) throw new Error('Erro ao buscar número');
 
         const data = await response.json();
-        return data[0];
+        return data;
     } catch (error) {
         console.error('Erro:', error);
         return null;
@@ -27,8 +17,8 @@ async function getAssignedNumber() {
 
     if (!assignedNumber) {
         const numberData = await getNextWhatsAppNumber();
-        if (numberData && numberData.phone_number) {
-            assignedNumber = numberData.phone_number;
+        if (numberData && numberData.phoneNumber) {
+            assignedNumber = numberData.phoneNumber;
             localStorage.setItem('whatsapp_assigned_number', assignedNumber);
         }
     }
