@@ -7,7 +7,12 @@ async function connectToDatabase() {
     return cachedClient;
   }
 
-  const client = new MongoClient(process.env.MONGODB_URI);
+  const client = new MongoClient(process.env.MONGODB_URI, {
+    serverSelectionTimeoutMS: 5000,
+    tls: true,
+    tlsAllowInvalidCertificates: false,
+    tlsAllowInvalidHostnames: false
+  });
   await client.connect();
   cachedClient = client;
   return client;
