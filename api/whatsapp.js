@@ -1,4 +1,4 @@
-const { MongoClient } = require('mongodb');
+import { MongoClient } from 'mongodb';
 
 let cachedClient = null;
 
@@ -13,12 +13,13 @@ async function connectToDatabase() {
     tlsAllowInvalidCertificates: false,
     tlsAllowInvalidHostnames: false
   });
+
   await client.connect();
   cachedClient = client;
   return client;
 }
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   if (req.method !== 'GET') {
     res.status(405).json({ error: 'Method not allowed' });
     return;
@@ -58,4 +59,4 @@ module.exports = async (req, res) => {
     console.error('Database error:', error.message, error.stack);
     res.status(500).json({ error: 'Internal server error', details: error.message });
   }
-};
+}
