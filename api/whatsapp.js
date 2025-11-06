@@ -48,13 +48,15 @@ export default async function handler(req, res) {
       }
     );
 
-    if (!result || !result.value) {
+    const updatedNumber = result?.value ?? result;
+
+    if (!updatedNumber || !updatedNumber.phone_number) {
       console.error('No active numbers found in database');
       res.status(404).json({ error: 'No active numbers found' });
       return;
     }
 
-    res.status(200).json({ phoneNumber: result.value.phone_number });
+    res.status(200).json({ phoneNumber: updatedNumber.phone_number });
   } catch (error) {
     console.error('Database error:', error.message, error.stack);
     res.status(500).json({ error: 'Internal server error', details: error.message });
