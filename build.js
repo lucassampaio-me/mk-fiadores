@@ -18,7 +18,7 @@ let html = fs.readFileSync('index-dev.html', 'utf-8');
 // 4. Substituir arquivos JS por bundle.min.js
 console.log('🔄 Substituindo arquivos JS...');
 html = html.replace(
-  /<script src="src\/js\/dataLayer\.js"><\/script>\s*<script src="src\/js\/gsap\.min\.js"><\/script>\s*<script src="src\/js\/ScrollTrigger\.min\.js"><\/script>\s*<script src="src\/js\/ScrollSmoother\.min\.js"><\/script>\s*<script src="src\/js\/SplitText\.min\.js"><\/script>\s*<script src="src\/js\/scroll-smoother\.js"><\/script>\s*<script src="src\/js\/animations\.js"><\/script>\s*<script src="src\/js\/whatsapp-widget\.js"><\/script>\s*<script src="src\/js\/whatsapp-distribution\.js"><\/script>\s*<script src="src\/js\/toast\.js"><\/script>\s*<script src="src\/js\/form\.js"><\/script>/g,
+  /<script src="src\/js\/dataLayer\.js"><\/script>\s*<script src="src\/js\/gsap\.min\.js"><\/script>\s*<script src="src\/js\/ScrollTrigger\.min\.js"><\/script>\s*<script src="src\/js\/ScrollSmoother\.min\.js"><\/script>\s*<script src="src\/js\/SplitText\.min\.js"><\/script>\s*<script src="src\/js\/scroll-smoother\.js"><\/script>\s*<script src="src\/js\/animations\.js"><\/script>\s*<script src="src\/js\/whatsapp-widget\.js"><\/script>\s*<script src="src\/js\/toast\.js"><\/script>\s*<script src="src\/js\/form\.js"><\/script>/g,
   '<script src="src/js/bundle.min.js"></script>'
 );
 

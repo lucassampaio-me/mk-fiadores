@@ -107,13 +107,6 @@ export default async function handler(req, res) {
               <table style="width: 100%; border-collapse: collapse;">
                 <tr>
                   <td style="padding: 8px;">
-                    <a href="https://wa.me/5511944427758?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20um%20atendente" style="display: block; background-color: #0F9918; color: #ffffff; text-decoration: none; padding: 16px 24px; border-radius: 8px; text-align: center; font-size: 16px; font-weight: 600;">
-                      📱 WhatsApp: (11) 94442-7758
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding: 8px;">
                     <a href="https://wa.me/5511916751560?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20um%20atendente" style="display: block; background-color: #0F9918; color: #ffffff; text-decoration: none; padding: 16px 24px; border-radius: 8px; text-align: center; font-size: 16px; font-weight: 600;">
                       📱 WhatsApp: (11) 91675-1560
                     </a>
@@ -126,7 +119,7 @@ export default async function handler(req, res) {
             <div style="background-color: #F0F5FF; border-radius: 12px; padding: 24px; margin-bottom: 24px;">
               <h3 style="color: #061C3D; font-size: 18px; font-weight: 600; margin: 0 0 16px 0;">Outras formas de contato:</h3>
               <p style="color: #42526B; font-size: 14px; margin: 0 0 8px 0;">📞 Telefones:</p>
-              <p style="color: #0B63E5; font-size: 14px; margin: 0 0 12px 0;">+55 (11) 94442-7758 | +55 (11) 91675-1560</p>
+              <p style="color: #0B63E5; font-size: 14px; margin: 0 0 12px 0;">+55 (11) 91675-1560</p>
               <p style="color: #42526B; font-size: 14px; margin: 0 0 8px 0;">✉️ E-mail:</p>
               <p style="color: #0B63E5; font-size: 14px; margin: 0;">contato@mkfiadores.com.br</p>
             </div>
